@@ -9,14 +9,23 @@
 <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/1048/1048942.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
-:root{--bg-color:#0b0814;--btn-bg:#ffdf48;--btn-hover:#ffea75;--btn-border:#d92b2b;--btn-text:#201300;--text-yellow:#ffdf48;--text-white:#fff;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{
+  --bg-color:#0b0814;--btn-bg:#ffdf48;--btn-hover:#ffea75;--btn-border:#d92b2b;--btn-text:#201300;--text-yellow:#ffdf48;--text-white:#fff;
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
 *{box-sizing:border-box;margin:0;padding:0;user-select:none;-webkit-user-select:none}
-html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-color);font-family:'Inter',sans-serif;color:#fff}
-#bgCanvas{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none}
-.scanlines{position:fixed;inset:0;pointer-events:none;z-index:2;background:linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,.22) 50%);background-size:100% 4px;opacity:.35}
-#appWrapper{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:1.25rem}
-.screen-card{position:absolute;width:100%;max-width:580px;max-height:100%;overflow:auto;padding:2rem;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transform:translateY(18px) scale(.97);pointer-events:none;transition:opacity .32s cubic-bezier(.16,1,.3,1),transform .32s cubic-bezier(.16,1,.3,1)}
-.screen-card.active{opacity:1;transform:none;pointer-events:auto}
+html,body{
+  width:100%;height:100%;overflow:hidden;background:var(--bg-color);
+  font-family:'Inter',sans-serif;color:#fff;
+  touch-action:none;
+  overscroll-behavior:none;
+}
+#bgCanvas{position:fixed;inset:0;width:100vw;height:100vh;display:block;z-index:1;pointer-events:none}
 .title-main{font-family:'Press Start 2P',monospace;font-size:clamp(1.7rem,4.5vw,2.4rem);color:var(--text-yellow);text-shadow:0 4px 0 #b91c1c,0 0 25px rgba(255,223,72,.5);margin-bottom:.85rem;letter-spacing:1px;line-height:1.35}
 .subtitle-main{font-size:clamp(.85rem,2vw,.95rem);line-height:1.6;color:#ede9fe;margin-bottom:2rem;max-width:520px;font-weight:500}
 .menu-buttons{display:flex;flex-direction:column;gap:1rem;width:100%;max-width:320px}
@@ -54,8 +63,8 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 .modal-img{width:100%;max-height:280px;object-fit:contain;border-radius:8px;border:2px solid #fff;margin-bottom:1rem}
 @media(max-width:640px){.gallery-row{grid-template-columns:repeat(2,1fr)}.photo-frame{width:220px;height:260px}}
 /* ---- jogo ---- */
-#game{position:fixed;inset:0;z-index:50;background:#000}
-#game canvas{width:100%;height:100%;object-fit:contain;image-rendering:pixelated;display:block}
+#game{position:fixed;inset:0;z-index:50;background:#000;width:100vw;height:100vh;}
+#game canvas{width:100vw;height:100vh;object-fit:cover;image-rendering:pixelated;display:block;}
 #hotbar{position:absolute;left:14px;top:14px;display:flex;gap:8px}
 .slot{position:relative;width:64px;height:64px;border:3px solid #5b4685;border-radius:12px;background:rgba(20,14,36,.82);display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 4px 10px rgba(0,0,0,.6)}
 .slot.sel{border-color:var(--text-yellow);box-shadow:0 0 14px rgba(255,223,72,.7)}
